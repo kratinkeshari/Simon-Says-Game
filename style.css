@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+}
+.box{
+    width:10rem;
+    height:10rem;
+    border:0.5rem solid #000000;
+    border-radius:20%;
+    margin: 0.75rem;
+}
+.box-container{
+    display: flex;
+    justify-content: center;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.pink{
+    background-color: pink;
+}
+.orange{
+    background-color: orange;
+}
