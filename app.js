@@ -46,16 +46,14 @@ function userSwap(btn,i){
         btn.style.background=btn.getAttribute("id");
     },150);
 }
-document.querySelector(".wrapper").addEventListener("click",(e)=>{
+document.querySelector(".wrapper").addEventListener("dblclick",(e)=>{
     if(!start){
     start=true;
     boxContainer.classList.add("active");
     console.log(`Hey, you konow about inspect tool good, but then also you have to crack the coded form of hint`);
     levelUp();
     setTimeout(gameSwap,1000);
-    }
-});
-let btns = document.querySelectorAll(".box");
+    let btns = document.querySelectorAll(".box");
 btns.forEach((btn)=>{
     btn.addEventListener("click",()=>{
         // if (!acceptingInput) return;
@@ -83,6 +81,9 @@ btns.forEach((btn)=>{
         }
     });
 });
+    }
+});
+
 
 
 
