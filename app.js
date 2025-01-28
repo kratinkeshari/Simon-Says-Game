@@ -6,7 +6,7 @@ let h3=document.querySelector("h3");
 let h4=document.querySelector("h4");
 let boxContainer = document.querySelector(".box-container");
 let start=false;
-let acceptingInput = false;
+// let acceptingInput = false;
 
 function levelUp(){
     level++;
@@ -18,14 +18,14 @@ function levelUp(){
     },150);
 }
 function gameSwap(){
-    acceptingInput = false;
+    // acceptingInput = false;
     let rand = Math.floor(Math.random()*4);
     let randBox = document.querySelector(`#${idx[rand]}`);
     console.log(`box is ${rand}`)
     randBox.style.backgroundColor="white";
     setTimeout(()=>{
         randBox.style.backgroundColor=`${idx[rand]}`;
-        acceptingInput = true; 
+        // acceptingInput = true; 
     },150);
     let color = rand;
     game.push(idx[rand]);
@@ -58,8 +58,7 @@ document.querySelector(".wrapper").addEventListener("click",(e)=>{
 let btns = document.querySelectorAll(".box");
 btns.forEach((btn)=>{
     btn.addEventListener("click",()=>{
-        if(!start) return;
-        if (!acceptingInput) return;
+        // if (!acceptingInput) return;
         let id=btn.getAttribute("id");
         let i=user.length;
         user.push(id);
@@ -67,10 +66,10 @@ btns.forEach((btn)=>{
             if(user[i] != game[i]){
                 displayResult();
                 wrongAns();
-                start = false; // Reset the game
-                game = [];
-                user = [];
-                level = 0;
+                // start = false; // Reset the game
+                // game = [];
+                // user = [];
+                // level = 0;
                 return;
             }
             else{
