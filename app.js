@@ -4,7 +4,10 @@ let level=0;
 let idx = ["red","yellow","pink","orange"];
 let h3=document.querySelector("h3");
 let h4=document.querySelector("h4");
+let boxContainer = document.querySelector(".box-container");
 let start=false;
+let acceptingInput = false;
+
 function levelUp(){
     level++;
     h4.innerHTML=`Round ${level}`;
@@ -15,12 +18,14 @@ function levelUp(){
     },150);
 }
 function gameSwap(){
+    acceptingInput = false;
     let rand = Math.floor(Math.random()*4);
     let randBox = document.querySelector(`#${idx[rand]}`);
     console.log(`box is ${rand}`)
     randBox.style.backgroundColor="white";
     setTimeout(()=>{
         randBox.style.backgroundColor=`${idx[rand]}`;
+        acceptingInput = true; 
     },150);
     let color = rand;
     game.push(idx[rand]);
@@ -41,17 +46,20 @@ function userSwap(btn,i){
         btn.style.background=btn.getAttribute("id");
     },150);
 }
-document.querySelector("body").addEventListener("click",()=>{
+document.querySelector(".wrapper").addEventListener("click",(e)=>{
     if(!start){
     start=true;
+    boxContainer.classList.add("active");
     console.log(`Hey, you konow about inspect tool good, but then also you have to crack the coded form of hint`);
     levelUp();
-    setTimeout(gameSwap,500);
+    setTimeout(gameSwap,1000);
     }
 });
 let btns = document.querySelectorAll(".box");
 btns.forEach((btn)=>{
     btn.addEventListener("click",()=>{
+        if(!start) return;
+        if (!acceptingInput) return;
         let id=btn.getAttribute("id");
         let i=user.length;
         user.push(id);
@@ -59,6 +67,10 @@ btns.forEach((btn)=>{
             if(user[i] != game[i]){
                 displayResult();
                 wrongAns();
+                start = false; // Reset the game
+                game = [];
+                user = [];
+                level = 0;
                 return;
             }
             else{
