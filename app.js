@@ -33,7 +33,7 @@ function wrongAns(){
     },150);
 }
 function displayResult(){
-    h4.innerText=`Your score is <b>${level-1}</b> !!!!`; 
+    h4.innerText=`Your score is ${level-1}!!!!`; 
 }
 function userSwap(btn,i){
     btn.style.background="green";
@@ -41,7 +41,7 @@ function userSwap(btn,i){
         btn.style.background=btn.getAttribute("id");
     },150);
 }
-document.querySelector("body").addEventListener("keypress",()=>{
+document.querySelector("body").addEventListener("click",()=>{
     if(!start){
     start=true;
     console.log(`Hey, you konow about inspect tool good, but then also you have to crack the coded form of hint`);
